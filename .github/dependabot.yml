@@ -9,11 +9,20 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
   - package-ecosystem: "nuget"
     directory: "/dependencies/PowerShellModules"
     schedule:
       interval: "weekly"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
   - package-ecosystem: "nuget"
     directory: "/dependencies/NuGetPackages"
     schedule:
       interval: "weekly"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
