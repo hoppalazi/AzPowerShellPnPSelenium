@@ -3,7 +3,7 @@
 
 Container image based on Azure PowerShell with PnP.PowerShell Module and Selenium.WebDriver package for use in Azure DevOps Pipeline as self-hosted agent.
 
-Based on the Azure PowerShell image following stuff is added:
+Based on the Azure PowerShell image following packages are added:
  - Mono
  - nuget.exe
  - Microsoft Edge
