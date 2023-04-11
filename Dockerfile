@@ -60,5 +60,6 @@ ENV EDGEWEBDRIVER=/usr/local/share/edge_driver \
 WORKDIR /azp
 
 COPY ./start.sh .
+RUN chmod +x start.sh
 
 ENTRYPOINT [ "./start.sh" ]
