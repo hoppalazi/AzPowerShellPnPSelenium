@@ -73,23 +73,8 @@ RUN GIT_REPO="ppa:git-core/ppa" && \
     DEBIAN_FRONTEND=noninteractive add-apt-repository --remove ${GIT_REPO} && \
     rm /etc/apt/sources.list.d/github_git-lfs.list
 
-# Add well-known SSH host keys to known_hosts
-# Raise Number of File Descriptors
-# Double stack size from default 8192KB
-# https://kind.sigs.k8s.io/docs/user/known-issues/#pod-errors-due-to-too-many-open-files
-# Disable to load providers
-# https://github.com/microsoft/azure-pipelines-agent/issues/3834
-RUN touch /etc/ssh/ssh_known_hosts && \
-    ssh-keyscan -t rsa,ecdsa,ed25519 github.com >> /etc/ssh/ssh_known_hosts && \
-    ssh-keyscan -t rsa ssh.dev.azure.com >> /etc/ssh/ssh_known_hosts && \
-    echo '* soft nofile 65536' >> /etc/security/limits.conf && \
-    echo '* hard nofile 65536' >> /etc/security/limits.conf && \
-    echo '* soft stack 16384' >> /etc/security/limits.conf && \
-    echo '* hard stack 16384' >> /etc/security/limits.conf && \
-    echo 'fs.inotify.max_user_watches=655360' | tee -a /etc/sysctl.conf && \
-    echo 'fs.inotify.max_user_instances=1280' | tee -a /etc/sysctl.conf && \
-    sed -i 's/openssl_conf = openssl_init/#openssl_conf = openssl_init/g' /etc/ssl/openssl.cnf && \
-    echo "chmod -R 777 /opt" && \
+# Change permissions
+RUN echo "chmod -R 777 /opt" && \
     chmod -R 777 /opt && \
     echo "chmod -R 777 /usr/share" && \
     chmod -R 777 /usr/share
