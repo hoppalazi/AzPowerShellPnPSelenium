@@ -15,6 +15,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     curl \
     git \
     gpg \
+    jq \
     unzip \
     wget \
     && wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/microsoft-edge.gpg && \
