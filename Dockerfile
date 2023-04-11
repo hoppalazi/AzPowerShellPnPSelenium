@@ -1,3 +1,4 @@
+#Previously used only ubuntu-22.04, now pinned Azure PowerShell version
 FROM mcr.microsoft.com/azure-powershell:9.6.0-ubuntu-22.04
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
