@@ -52,7 +52,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     # Install PnP.PowerShell Module
     Install-PSResource -Name PnP.PowerShell -Version 2.1.1 -Repository PSGallery -Scope AllUsers -TrustRepository ; \
     # Remove PowerShellGetv3 Module
-    Get-Module -Name PowerShellGet -ListAvailable -Verbose | Where-Object {\$PSItem.Version.Major -eq 3} | Uninstall-Module -Force -Verbose; "
+    Get-Module -Name PowerShellGet -ListAvailable | Where-Object {\$PSItem.Version.Major -eq 3} | Uninstall-Module -Force ; "
 
 # Set environment variable
 # Set the ACCEPT_EULA variable to Y value to confirm your acceptance of the End-User Licensing Agreement
