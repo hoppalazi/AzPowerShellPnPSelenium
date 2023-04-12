@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/powershell:ubuntu-22.04
+FROM mcr.microsoft.com/azure-powershell:9.6.0-ubuntu-22.04
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
@@ -47,8 +47,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     Install-PSResource -Name Selenium.WebDriver -Version 4.8.2 -Repository nuget.org -Scope AllUsers -TrustRepository ; \
     # Create symbolic link to Selenium.WebDriver
     New-Item -Path /usr/local/share/ -Name Selenium.WebDriver.dll -ItemType SymbolicLink -Value /usr/local/share/powershell/Modules/Selenium.WebDriver/4.8.2/lib/net6.0/WebDriver.dll | Out-Null ; \
-    # Install Az Module
-    Install-PSResource -Name Az -Version 9.6.0 -Repository PSGallery -Scope AllUsers -TrustRepository ; \
     # Install PnP.PowerShell Module
     Install-PSResource -Name PnP.PowerShell -Version 2.1.1 -Repository PSGallery -Scope AllUsers -TrustRepository ; \
     # Remove PowerShellGetv3 Module
