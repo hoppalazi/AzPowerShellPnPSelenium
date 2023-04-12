@@ -29,6 +29,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     EDGEDRIVER_URL="https://msedgedriver.azureedge.net/${EDGE_DRIVER_LATEST_VERSION}/edgedriver_linux64.zip" && \
     curl $EDGEDRIVER_URL -4 -sL -o "/tmp/edgedriver_linux64.zip" && \
     unzip -qq /tmp/edgedriver_linux64.zip -d /usr/local/share/edge_driver && \
+    rm /tmp/edgedriver_linux64.zip && \
     chmod +x /usr/local/share/edge_driver/msedgedriver && \
     ln -s /usr/local/share/edge_driver/msedgedriver /usr/bin && \
     rm -rf /var/lib/apt/lists/*
