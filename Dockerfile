@@ -49,6 +49,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     New-Item -Path /usr/local/share/ -Name Selenium.WebDriver.dll -ItemType SymbolicLink -Value /usr/local/share/powershell/Modules/Selenium.WebDriver/4.8.2/lib/net6.0/WebDriver.dll | Out-Null ; \
     # Install PnP.PowerShell Module
     Install-PSResource -Name PnP.PowerShell -Version 2.1.1 -Repository PSGallery -Scope AllUsers -TrustRepository ; \
+    # Install PSFramework Module
+    Install-PSResource -Name PSFramework -Version 1.7.270 -Repository PSGallery -Scope AllUsers -TrustRepository ; \
     # Remove PowerShellGetv3 Module
     Get-Module -Name PowerShellGet -ListAvailable | Where-Object {\$PSItem.Version.Major -eq 3} | Uninstall-Module -Force ; "
 
