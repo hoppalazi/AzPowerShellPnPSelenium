@@ -37,16 +37,16 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     -Command " \
     \$ErrorActionPreference = 'Stop' ; \
     \$ProgressPreference = 'SilentlyContinue' ; \
-    # Install PowerShellGetv3 to prevent a dependency error with PowerShellGetv2 Install-Package
-    Install-Module -Name PowerShellGet -Repository PSGallery -Scope AllUsers -Force -AllowPrerelease ; \
-    # Import PowerShellGetv3 Module
-    Import-Module -Global -Name PowerShellGet ; \
+    # Install Microsoft.PowerShell.PSResourceGet to prevent a dependency error with PowerShellGetv2 Install-Package
+    Install-Module -Name Microsoft.PowerShell.PSResourceGet -Repository PSGallery -Scope AllUsers -Force -AllowPrerelease ; \
+    # Import Microsoft.PowerShell.PSResourceGet Module
+    Import-Module -Global -Name Microsoft.PowerShell.PSResourceGet ; \
     # Register NuGet repository
     Register-PSResourceRepository -Name nuget.org -Uri https://api.nuget.org/v3/index.json -Trusted:\$false -Priority 50 ; \
     # Install Selenium.WebDriver package
     Install-PSResource -Name Selenium.WebDriver -Version 4.14.1 -Repository nuget.org -Scope AllUsers -TrustRepository ; \
     # Create symbolic link to Selenium.WebDriver
-    New-Item -Path /usr/local/share/ -Name Selenium.WebDriver.dll -ItemType SymbolicLink -Value /usr/local/share/powershell/Modules/Selenium.WebDriver/4.8.2/lib/net6.0/WebDriver.dll | Out-Null ; \
+    New-Item -Path /usr/local/share/ -Name Selenium.WebDriver.dll -ItemType SymbolicLink -Value /usr/local/share/powershell/Modules/Selenium.WebDriver/4.14.1/lib/net6.0/WebDriver.dll | Out-Null ; \
     # Install PnP.PowerShell Module
     Install-PSResource -Name PnP.PowerShell -Version 2.3.0 -Repository PSGallery -Scope AllUsers -TrustRepository ; \
     # Install PSFramework Module
