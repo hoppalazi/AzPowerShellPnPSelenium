@@ -44,13 +44,13 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     # Register NuGet repository
     Register-PSResourceRepository -Name nuget.org -Uri https://api.nuget.org/v3/index.json -Trusted:\$false -Priority 50 ; \
     # Install Selenium.WebDriver package
-    Install-PSResource -Name Selenium.WebDriver -Version 4.14.1 -Repository nuget.org -Scope AllUsers -TrustRepository ; \
+    Install-PSResource -Name Selenium.WebDriver -Version 4.16.2 -Repository nuget.org -Scope AllUsers -TrustRepository ; \
     # Create symbolic link to Selenium.WebDriver
     New-Item -Path /usr/local/share/ -Name Selenium.WebDriver.dll -ItemType SymbolicLink -Value /usr/local/share/powershell/Modules/Selenium.WebDriver/4.14.1/lib/net6.0/WebDriver.dll | Out-Null ; \
     # Install PnP.PowerShell Module
     Install-PSResource -Name PnP.PowerShell -Version 2.3.0 -Repository PSGallery -Scope AllUsers -TrustRepository ; \
     # Install PSFramework Module
-    Install-PSResource -Name PSFramework -Version 1.9.310 -Repository PSGallery -Scope AllUsers -TrustRepository ; \
+    Install-PSResource -Name PSFramework -Version 1.10.318 -Repository PSGallery -Scope AllUsers -TrustRepository ; \
     # Remove PowerShellGetv3 Module
     Get-Module -Name PowerShellGet -ListAvailable | Where-Object {\$PSItem.Version.Major -eq 3} | Uninstall-Module -Force ; "
 
