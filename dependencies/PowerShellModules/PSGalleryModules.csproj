@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Az" Version="11.1.0" />
-    <PackageReference Include="PnP.PowerShell" Version="2.2.0" />
+    <PackageReference Include="PnP.PowerShell" Version="2.3.0" />
     <PackageReference Include="PSFramework" Version="1.9.310" />
   </ItemGroup>
 
