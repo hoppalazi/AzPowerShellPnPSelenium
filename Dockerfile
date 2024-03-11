@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azure-powershell:11.1.0-ubuntu-22.04
+FROM mcr.microsoft.com/azure-powershell:11.4.0-ubuntu-22.04
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
